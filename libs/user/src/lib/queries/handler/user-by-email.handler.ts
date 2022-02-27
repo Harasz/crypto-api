@@ -1,7 +1,7 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 import { User } from '../../user.model';
-import { UserRepository } from '../../user.repository';
+import { UserRepository } from '../../repository';
 import { UserByEmailQuery } from '../impl';
 
 @QueryHandler(UserByEmailQuery)
