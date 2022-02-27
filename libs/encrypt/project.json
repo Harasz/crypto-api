@@ -1,0 +1,23 @@
+{
+  "root": "libs/encrypt",
+  "sourceRoot": "libs/encrypt/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/encrypt/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/encrypt"],
+      "options": {
+        "jestConfig": "libs/encrypt/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
