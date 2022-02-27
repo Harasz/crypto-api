@@ -7,6 +7,7 @@ import {
 } from '@nestjs/swagger';
 import { Auth, User } from '@nest-demo/auth';
 import { User as IUser } from '@nest-demo/user';
+import { KeyPair } from '@nest-demo/rsa-generation';
 
 import { GenerateKeysCommand } from './commands/impl';
 import { GenerateKeysResponseDto } from './dtos';
@@ -23,7 +24,14 @@ export class KeysController {
     description: 'Successfully generated key pair.',
     type: GenerateKeysResponseDto,
   })
-  async generateKeyPair(@User() user: IUser) {
-    return await this.commandBus.execute(new GenerateKeysCommand(user.email));
+  async generateKeyPair(@User() user: IUser): Promise<GenerateKeysResponseDto> {
+    const keyPair: KeyPair = await this.commandBus.execute(
+      new GenerateKeysCommand(user.email)
+    );
+
+    return {
+      privKey: keyPair.privateKey,
+      pubKey: keyPair.publicKey,
+    };
   }
 }
