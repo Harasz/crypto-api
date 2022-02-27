@@ -1,6 +1,13 @@
 {
   "version": 2,
   "projects": {
-    "crypto-api": "apps/crypto-api"
+    "auth": "libs/auth",
+    "config": "libs/config",
+    "crypto-api": "apps/crypto-api",
+    "encrypt": "libs/encrypt",
+    "jwt": "libs/jwt",
+    "keys": "libs/keys",
+    "rsa-generation": "libs/rsa-generation",
+    "user": "libs/user"
   }
 }
